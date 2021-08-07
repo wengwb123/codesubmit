@@ -19,7 +19,15 @@
 				{
 					"id": "my-explorer",
 					"title": "My Explorer",
-					"icon": "media/my.svg"
+					"icon": "resources/my.svg"
+				}
+			]
+		},
+		"views": {
+			"my-explorer":[
+				{
+					"id": "codesubmit",
+					"name": "Code Submit"
 				}
 			]
 		}
