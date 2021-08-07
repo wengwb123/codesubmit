@@ -10,16 +10,19 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:codesubmit.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
-			{
-				"command": "codesubmit.helloWorld",
-				"title": "Hello World"
-			}
-		]
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "my-explorer",
+					"title": "My Explorer",
+					"icon": "media/my.svg"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
