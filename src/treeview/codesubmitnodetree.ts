@@ -24,10 +24,14 @@ export class CodeSubmitNode implements vscode.TreeDataProvider<Dependency> {
     ]);
   }
 
+  // 添加一个静态方法去注册数视图
+  public static initTreeNode() {
+    // 代码提交树视图注册
+    vscode.window.registerTreeDataProvider('codesubmit', new CodeSubmitNode());
+  }
+
+
 }
-
-
-
 
 // 定义一个单项节点
 class Dependency extends vscode.TreeItem {
@@ -47,4 +51,16 @@ class Dependency extends vscode.TreeItem {
     light: path.join(__filename, '..', '..', '..', 'resources', 'light', `${this.nodeIcon}.svg`),
     dark: path.join(__filename, '..', '..', '..', 'resources', 'dark', `${this.nodeIcon}.svg`)
   };
+
+  // 给树节点注册事件
+  command = {
+    title: this.label,  // 标题
+    command: "codeSubmitNodeClick", // 命令的id,注册命令的时候用到
+    tooltip: this.label,  // 鼠标悬停时的提示信息
+    arguments: [     // 传递的参数: 保留，可能以后会用到
+      this.label,
+      this.nodeIcon,
+    ]
+
+  }
 }
